@@ -28,9 +28,9 @@ class DueDateCalculatorTest extends TestCase
      * @expectedException \InvalidArgumentException
      * @expectedExceptionMessage The turnaroundTime parameter must be a positive integer.
      */
-    public function testInvalidTurnaroundTime($turnaroudTime)
+    public function testInvalidTurnaroundTime($turnaroundTime)
     {
         $submitDate = new \DateTime();
-        DueDateCalculator::calculateDueDate($submitDate, $turnaroudTime);
+        DueDateCalculator::calculateDueDate($submitDate, $turnaroundTime);
     }
 }
