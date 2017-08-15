@@ -15,7 +15,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Smatyas\\Ddc\\Tests": "tests/"
+            "Smatyas\\Ddc\\Tests\\": "tests/"
         }
     },
     "require": {
