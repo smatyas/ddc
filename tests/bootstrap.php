@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set('UTC');
 $autoloader = __DIR__ . '/../vendor/autoload.php';
 if (!file_exists($autoloader)) {
     echo 'Missing autoloader file. Run `composer install` to install composer dependencies.';

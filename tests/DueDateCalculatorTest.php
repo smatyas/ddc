@@ -33,4 +33,25 @@ class DueDateCalculatorTest extends TestCase
         $submitDate = new \DateTime();
         DueDateCalculator::calculateDueDate($submitDate, $turnaroundTime);
     }
+
+    public function invalidSubmitDateDataProvider()
+    {
+        return [
+            ['2017-08-15T8:59:59'],
+            ['2017-08-15T17:00:01'],
+            ['2017-08-19T10:00:00'],
+            ['2017-08-20T10:00:00'],
+        ];
+    }
+
+    /**
+     * @dataProvider invalidSubmitDateDataProvider
+     * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage The submitDate parameter must be a workday between 9AM and 5PM.
+     */
+    public function testInvalidSubmitDate($submitDateString)
+    {
+        $submitDate = new \DateTime($submitDateString);
+        DueDateCalculator::calculateDueDate($submitDate, 1);
+    }
 }
